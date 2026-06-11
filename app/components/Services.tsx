@@ -1,22 +1,28 @@
-import { Droplets, Cpu, Wifi } from "lucide-react";
+import { Droplets, Cpu, Wifi, CloudRain } from "lucide-react";
 
 const services = [
   {
     icon: Droplets,
     title: "Sense",
-    desc: "Capacitive soil moisture sensors, ultrasonic water level sensors on tanks and livestock troughs. The farm gets real feedback for the first time,no guesswork, no schedule-based waste.",
+    desc: "Capacitive soil moisture sensors at root-zone depth per crop zone, ultrasonic level sensors on overhead tanks and livestock troughs. The farm gets real-time feedback for the first time — no guesswork, no schedule-based waste.",
     highlighted: false,
   },
   {
     icon: Cpu,
     title: "Automate",
-    desc: "An ESP32 embedded controller runs all automation logic locally. Soil moisture thresholds trigger irrigation. Troughs refill automatically. Dry-run protection fires before the pump takes damage. Internet outage changes nothing.",
+    desc: "An ESP32 edge controller runs all automation logic locally. Moisture thresholds trigger zone-specific irrigation. Tanks refill on solar power. Troughs top up automatically. Dry-run protection fires before the pump takes damage. Internet outage changes nothing.",
     highlighted: true,
+  },
+  {
+    icon: CloudRain,
+    title: "Predict",
+    desc: "Hourly rain probability forecasts via weather API. When rainfall is above 65% within 2 hours, irrigation is suppressed automatically — saving the pump run and preserving water. This alone eliminates 20–35% of wet-season pump cycles.",
+    highlighted: false,
   },
   {
     icon: Wifi,
     title: "Monitor",
-    desc: "A lightweight mobile dashboard gives every sensor, trough, tank, and pump status from any smartphone. GSM fallback delivers SMS alerts to basic phones in rural areas without reliable internet.",
+    desc: "A lightweight mobile dashboard shows every sensor, trough, tank, pump status, and daily consumption history from any smartphone. GSM module delivers SMS alerts and basic remote commands to rural farmers without reliable internet.",
     highlighted: false,
   },
 ];
@@ -45,7 +51,7 @@ export default function Services() {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {services.map(({ icon: Icon, title, desc, highlighted }) => (
           <div
             key={title}

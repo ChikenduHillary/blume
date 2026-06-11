@@ -5,6 +5,7 @@ import Ecosystem from "./components/Ecosystem";
 import About from "./components/About";
 import Services from "./components/Services";
 import Products from "./components/Products";
+import Team from "./components/Team";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
@@ -19,6 +20,7 @@ export default function Home() {
         <About />
         <Services />
         <Products />
+        <Team />
         <Contact />
       </main>
       <Footer />

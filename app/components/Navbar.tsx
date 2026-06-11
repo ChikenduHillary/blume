@@ -7,6 +7,8 @@ const navLinks = [
   { label: "Services",   href: "#services"   },
   { label: "Ecosystem",  href: "#ecosystem"  },
   { label: "Technology", href: "#technology" },
+  { label: "Tiers",      href: "#tiers"      },
+  { label: "Team",       href: "#team"       },
   { label: "Contact",    href: "#contact"    },
 ];
 
@@ -64,6 +66,12 @@ export default function Navbar() {
 
           {/* Desktop CTA — spinning beam border button */}
           <div className="hidden md:flex items-center gap-4">
+            <a
+              href="/dashboard"
+              className="text-sm text-white/70 hover:text-[#eab308] transition-colors font-medium"
+            >
+              Dashboard
+            </a>
             <a
               href="#contact"
               className="group relative flex items-center justify-center uppercase transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_40px_-10px_rgba(234,179,8,0.5)] focus:outline-none text-[11px] font-semibold text-white tracking-widest rounded-full px-5 py-2.5"
