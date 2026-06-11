@@ -204,9 +204,10 @@ export default function Hero() {
 
               {/* Sub */}
               <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-up animation-delay-500 opacity-0">
-                Blume is the excellence partner for the energy and technological
-                transition of Nigerian smallholder farming,sensor-driven
-                automation that works with or without grid power.
+                Blume wraps around your existing borehole-pump-tank infrastructure
+                and adds the intelligence layer that has always been missing —
+                sensor-driven automation that keeps working when the internet cuts
+                and NEPA takes the light.
               </p>
 
               {/* CTAs */}
@@ -236,7 +237,7 @@ export default function Hero() {
               {[
                 { value: "14M+", label: "Smallholder Farms in Nigeria" },
                 { value: "70%+", label: "Still Using Manual Irrigation" },
-                { value: "40%",  label: "Fuel Cost Reduction Per Farm"  },
+                { value: "30–45%", label: "Fuel Cost Reduction Per Farm" },
               ].map(({ value, label }) => (
                 <div
                   key={label}
