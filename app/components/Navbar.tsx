@@ -1,20 +1,21 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Droplets, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const navLinks = [
-  { label: "Solution",   href: "#about"      },
-  { label: "Services",   href: "#services"   },
-  { label: "Ecosystem",  href: "#ecosystem"  },
+  { label: "Solution", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Ecosystem", href: "#ecosystem" },
   { label: "Technology", href: "#technology" },
-  { label: "Tiers",      href: "#tiers"      },
-  { label: "Team",       href: "#team"       },
-  { label: "Contact",    href: "#contact"    },
+  { label: "Tiers", href: "#tiers" },
+  { label: "Team", href: "#team" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled,  setScrolled]  = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -25,7 +26,9 @@ export default function Navbar() {
   // Lock body scroll while overlay is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [menuOpen]);
 
   const close = () => setMenuOpen(false);
@@ -42,13 +45,15 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
           {/* Logo */}
-          <a
-            href="#"
-            onClick={close}
-            className="text-white text-base font-semibold tracking-tighter flex items-center gap-2"
-          >
-            <Droplets className="w-5 h-5 text-[#eab308]" />
-            Blume
+          <a href="#" onClick={close} className="flex items-center">
+            <Image
+              src="/logo.png"
+              alt="Blume"
+              width={100}
+              height={33}
+              className="object-contain"
+              priority
+            />
           </a>
 
           {/* Desktop nav */}
@@ -76,27 +81,41 @@ export default function Navbar() {
               href="#contact"
               className="group relative flex items-center justify-center uppercase transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_40px_-10px_rgba(234,179,8,0.5)] focus:outline-none text-[11px] font-semibold text-white tracking-widest rounded-full px-5 py-2.5"
             >
-              <span aria-hidden className="absolute inset-0 rounded-full overflow-hidden" style={{ padding: "1px" }}>
+              <span
+                aria-hidden
+                className="absolute inset-0 rounded-full overflow-hidden"
+                style={{ padding: "1px" }}
+              >
                 <span
                   aria-hidden
                   className="animate-beam-spin"
                   style={{
                     position: "absolute",
-                    width:    "400%",
-                    height:   "400%",
-                    top:      "-150%",
-                    left:     "-150%",
+                    width: "400%",
+                    height: "400%",
+                    top: "-150%",
+                    left: "-150%",
                     background:
                       "conic-gradient(from 0deg, transparent 0deg 300deg, #eab308 300deg 360deg)",
                   }}
                 />
-                <span aria-hidden className="absolute rounded-full bg-[#06120b]" style={{ inset: "1px" }} />
+                <span
+                  aria-hidden
+                  className="absolute rounded-full bg-[#06120b]"
+                  style={{ inset: "1px" }}
+                />
               </span>
-              <span aria-hidden className="absolute rounded-full bg-[#06120b] overflow-hidden" style={{ inset: "2px", zIndex: -1 }}>
+              <span
+                aria-hidden
+                className="absolute rounded-full bg-[#06120b] overflow-hidden"
+                style={{ inset: "2px", zIndex: -1 }}
+              >
                 <span className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent" />
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-1/2 bg-[#eab308]/10 blur-2xl rounded-full transition-colors duration-500 group-hover:bg-[#eab308]/30" />
               </span>
-              <span className="relative text-white/90 group-hover:text-white transition-colors">Get a Quote</span>
+              <span className="relative text-white/90 group-hover:text-white transition-colors">
+                Get a Quote
+              </span>
             </a>
           </div>
 
@@ -110,7 +129,11 @@ export default function Navbar() {
               className="block transition-all duration-300"
               style={{ transform: menuOpen ? "rotate(90deg)" : "rotate(0deg)" }}
             >
-              {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {menuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
             </span>
           </button>
         </div>
@@ -120,7 +143,7 @@ export default function Navbar() {
       <div
         className="md:hidden fixed inset-0 z-[100] bg-[#06120b] flex flex-col overflow-hidden"
         style={{
-          transform:  menuOpen ? "translateY(0)" : "translateY(-100%)",
+          transform: menuOpen ? "translateY(0)" : "translateY(-100%)",
           transition: "transform 520ms cubic-bezier(0.22, 1, 0.36, 1)",
         }}
       >
@@ -139,8 +162,8 @@ export default function Navbar() {
               onClick={close}
               className="text-[2.6rem] leading-tight font-extrabold text-white hover:text-[#eab308] tracking-tight py-2 transition-colors duration-200"
               style={{
-                opacity:    menuOpen ? 1 : 0,
-                transform:  menuOpen ? "translateY(0)" : "translateY(28px)",
+                opacity: menuOpen ? 1 : 0,
+                transform: menuOpen ? "translateY(0)" : "translateY(28px)",
                 transition: `opacity 420ms ${i * 65 + 180}ms cubic-bezier(0.22,1,0.36,1),
                              transform 420ms ${i * 65 + 180}ms cubic-bezier(0.22,1,0.36,1),
                              color 200ms`,
@@ -155,8 +178,8 @@ export default function Navbar() {
         <div
           className="px-8 pb-14"
           style={{
-            opacity:    menuOpen ? 1 : 0,
-            transform:  menuOpen ? "translateY(0)" : "translateY(20px)",
+            opacity: menuOpen ? 1 : 0,
+            transform: menuOpen ? "translateY(0)" : "translateY(20px)",
             transition: `opacity 420ms 520ms cubic-bezier(0.22,1,0.36,1),
                          transform 420ms 520ms cubic-bezier(0.22,1,0.36,1)`,
           }}
