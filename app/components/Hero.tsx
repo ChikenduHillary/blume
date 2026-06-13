@@ -43,8 +43,7 @@ const CARDS = [
 ];
 
 /* Background hero image (centre card in final state) */
-const BG_IMG =
-  "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1600&q=80";
+const BG_IMG = "/blume-hero.jpg";
 
 /* ─── Helpers ────────────────────────────────────────────────────── */
 function lerp(a: number, b: number, t: number) {
